@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoggedToolbarComponent } from './logged-toolbar.component';
+import { InTheatersComponent } from './in-theaters.component';
 
-describe('LoggedToolbarComponent', () => {
-  let component: LoggedToolbarComponent;
-  let fixture: ComponentFixture<LoggedToolbarComponent>;
+describe('InTheatersComponent', () => {
+  let component: InTheatersComponent;
+  let fixture: ComponentFixture<InTheatersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoggedToolbarComponent ]
+      declarations: [ InTheatersComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoggedToolbarComponent);
+    fixture = TestBed.createComponent(InTheatersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

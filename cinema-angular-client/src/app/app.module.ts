@@ -10,15 +10,22 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoggedToolbarComponent } from './components/logged-toolbar/logged-toolbar.component';
-
+import { InTheatersComponent } from './components/in-theaters/in-theaters.component';
+import { AdminNavComponent } from './admin-nav/admin-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    LoggedToolbarComponent
+    InTheatersComponent,
+    AdminNavComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,13 @@ import { LoggedToolbarComponent } from './components/logged-toolbar/logged-toolb
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

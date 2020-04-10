@@ -2,9 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: #232526;  
-
-
-
+  background: #232526;
+  overflow: hidden; max-width: 100%; max-height: 100%;
 }
 

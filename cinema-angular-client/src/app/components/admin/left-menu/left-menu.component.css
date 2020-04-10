@@ -1,0 +1,25 @@
+.sidenav_container {
+  min-width: 50px;
+  height: calc(100vh - 200px);
+}
+
+.jim {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.menu-icon{
+  margin-right: 11px;
+}
+
+.mat-list-item{
+  height: 58px !important;
+}
+
+.selected-color{
+  background-color: #607d8b;
+  pointer-events: none;
+}
+
+

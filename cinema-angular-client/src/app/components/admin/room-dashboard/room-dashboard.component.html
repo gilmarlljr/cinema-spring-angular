@@ -1,0 +1,43 @@
+<mat-card class="main-card mat-elevation-z2">
+  <div fxLayout="row wrap">
+    <div fxFlex="8" fxLayout="column">
+      <button mat-raised-button color="primary" (click)="new()">
+        <mat-icon>add</mat-icon> Novo
+      </button>
+    </div>
+    <span fxFlex="62"></span>
+    <div fxFlex="30" fxLayout="column">
+      <mat-form-field>
+        <mat-label>Pesquisar</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="mat-elevation-z8" >
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="chairs">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade de Cadeiras </th>
+        <td mat-cell *matCellDef="let row"> {{row.chairs}} </td>
+      </ng-container>
+      <ng-container matColumnDef="menu" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef>Operações</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button matTooltip="Editar" [matTooltipShowDelay]="1000" (click)="update(row.id,row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Deletar" [matTooltipShowDelay]="1000" (click)="remove(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+    <mat-paginator></mat-paginator>
+  </div>
+</mat-card>

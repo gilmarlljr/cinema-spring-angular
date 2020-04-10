@@ -1,0 +1,13 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>CinemaApp</mat-card-title>
+    </mat-card-header>
+    <form  [formGroup]="formUser" (ngSubmit)="login()">
+      <mat-card-content>
+        <ng-template abstract-form></ng-template>
+      </mat-card-content>
+      <button mat-raised-button color="primary" class="btn-block">Entrar</button>
+    </form>
+  </mat-card>
+</div>

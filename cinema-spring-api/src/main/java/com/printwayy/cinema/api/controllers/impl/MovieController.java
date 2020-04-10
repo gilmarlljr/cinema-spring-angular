@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/movies")
+@RequestMapping(path = "/api/movie")
 public class MovieController extends Controller<Movie> {
     @Autowired
     private MovieService service;

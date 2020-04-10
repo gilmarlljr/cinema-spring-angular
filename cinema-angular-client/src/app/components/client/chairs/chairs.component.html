@@ -1,0 +1,9 @@
+<mat-grid-list cols="{{size}}" rowHeight="30px" style="width: 300px !important;">
+
+  <mat-grid-tile *ngFor="let chair of chairs">
+    <button mat-icon-button class="small-icon-button" matTooltip="{{chair.number}} - {{chair.row}}" (click)="selectChair(chair)"
+      [disabled]="chair.status === occupiedColor">
+      <mat-icon [ngStyle]="{'color': chair.status}" class="small-chair-icon">weekend</mat-icon>
+    </button></mat-grid-tile>
+
+</mat-grid-list>

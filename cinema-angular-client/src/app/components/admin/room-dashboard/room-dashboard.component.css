@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+
+td.mat-column-name {
+  width: 50%;
+  padding-right: 8px;
+}
+td.mat-column-chairs {
+  width: 40%;
+  padding-right: 8px;
+}
+td.mat-column-menu {
+  width: 10%;
+  padding-right: 8px;
+}

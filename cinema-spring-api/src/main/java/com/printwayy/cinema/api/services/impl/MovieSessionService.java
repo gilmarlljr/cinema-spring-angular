@@ -1,15 +1,20 @@
 package com.printwayy.cinema.api.services.impl;
 
 import com.printwayy.cinema.api.models.impl.MovieSession;
-import com.printwayy.cinema.api.models.impl.User;
 import com.printwayy.cinema.api.repositories.MovieSessionRepository;
 import com.printwayy.cinema.api.services.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
 @org.springframework.stereotype.Service
 public class MovieSessionService implements Service<MovieSession> {
+    @Override
+    public Page<MovieSession> findPaginated(int page, int size, Sort.Direction sort, String column) {
+        return null;
+    }
 
     @Autowired
     private MovieSessionRepository repository;

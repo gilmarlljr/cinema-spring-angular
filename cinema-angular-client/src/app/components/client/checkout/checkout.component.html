@@ -1,0 +1,111 @@
+<div fxFlex fxLayout="column" style="height: 100vh">
+  <div fxLayout="row wrap">
+    <span fxFlex="25" fxFlex.md="25" fxFlex.sm="0" fxFlex.xs="0"></span>
+    <div fxFlex="50" fxFlex.md="50" fxFlex.sm="100" fxFlex.xs="100" fxLayout="column"
+      style="padding: 5px; justify-content: center;">
+      <mat-card class="main-card mat-elevation-z2">
+
+        <div class="mat-elevation-z8">
+          <mat-horizontal-stepper linear #stepper>
+            <mat-step [stepControl]="firstFormGroup" [editable]="true">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Filme</ng-template>
+                <mat-card class="main-card mat-elevation-z0">
+                  <div fxLayout="row wrap">
+                    <span fxFlex="25" fxFlex.md="25" fxFlex.sm="0" fxFlex.xs="0"></span>
+                    <div fxFlex="50" fxFlex.md="50" fxFlex.sm="100" fxFlex.xs="100" fxLayout="column">
+                      <mat-card-title style="text-align: center;"> {{ card.title }} </mat-card-title>
+                    </div>
+                  </div>
+                  <mat-card class="mat-elevation-z0" style="margin-top: 5px;">
+                    <div fxLayout="row wrap">
+                      <span fxFlex="32" fxFlex.md="25" fxFlex.sm="30" fxFlex.xs="15"></span>
+                      <div fxLayout="column" fxFlex=35 fxFlex.md="50" fxFlex.sm="40" fxFlex.xs="60">
+                        <mat-card class="image-card mat-elevation-z0">
+                          <img mat-card-image
+                            src="https://ptanime.com/wp-content/uploads/2015/02/Attack-on-Titan-Filme-Poster.jpg"
+                            alt="Photo of a Shiba Inu">
+                        </mat-card>
+                      </div>
+                    </div>
+                  </mat-card>
+                  <div fxLayout="row wrap">
+                    <div fxLayout="column" fxFlex=100>
+                      <mat-card-footer>
+                        <div fxLayout="row wrap">
+                          <div fxLayout="column" fxFlex=100>
+                            <span>Sala 1 <span class="movie-tag">3D</span><span class="movie-tag">LEG</span></span>
+                          </div>
+                        </div>
+                        <div fxLayout="row wrap">
+                          <div fxLayout="column" fxFlex=100>
+                            <span>Horário: 10:30 - 11:30 </span>
+                          </div>
+                        </div>
+
+
+                      </mat-card-footer>
+                    </div>
+                  </div>
+                </mat-card>
+
+                <div fxLayout="row wrap">
+                  <span fxFlex="32" fxFlex.md="25" fxFlex.sm="30" fxFlex.xs="15"></span>
+                  <div fxLayout="column" fxFlex=35 fxFlex.md="50" fxFlex.sm="40" fxFlex.xs="60">
+                    <button mat-raised-button color="primary" matStepperNext>Confirmar</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+
+
+            <mat-step [stepControl]="secondFormGroup" [editable]="true">
+
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Acentos</ng-template>
+                <div fxLayout="row wrap">
+                  <span fxFlex="25" fxFlex.md="20" fxFlex.sm="25" fxFlex.xs="15"></span>
+
+                  <app-chairs></app-chairs>
+
+                </div>
+                <div fxLayout="row wrap">
+                  <div fxLayout="column" fxFlex=100>
+                    <div fxLayout="row wrap">
+                      <div fxLayout="column" fxFlex=100>
+                        <span>Sala 1 <span class="movie-tag">3D</span><span class="movie-tag">LEG</span></span>
+                      </div>
+                    </div>
+                    <div fxLayout="row wrap">
+                      <div fxLayout="column" fxFlex=100>
+                        <span>Horário: 10:30 - 11:30 </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row wrap">
+                  <span fxFlex="32" fxFlex.md="25" fxFlex.sm="30" fxFlex.xs="15"></span>
+                  <div fxLayout="column" fxFlex=17 fxFlex.md="24" fxFlex.sm="19" fxFlex.xs="29">
+                    <button mat-raised-button color="primary" matStepperPrevious>Voltar</button>
+                  </div>
+                  <span fxFlex="1" fxFlex.md="1" fxFlex.sm="1" fxFlex.xs="1"></span>
+                  <div fxLayout="column" fxFlex=17 fxFlex.md="24" fxFlex.sm="19" fxFlex.xs="29">
+                    <button mat-raised-button color="primary" matStepperNext>Confirmar</button>
+                  </div>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Finalizar</ng-template>
+              <p>You are now done.</p>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

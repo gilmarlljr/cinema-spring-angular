@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animation": "^4.0.0-beta.8",
     "@angular/animations": "^9.1.0",
     "@angular/cdk": "^9.2.0",
     "@angular/common": "~9.1.0",
@@ -22,6 +23,9 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "ngx-avatar": "^3.7.0",
+    "ngx-material-file-input": "^2.1.1",
+    "ngx-material-timepicker": "^5.5.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

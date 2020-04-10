@@ -2,7 +2,7 @@
 @include mat-core();
 
   $primary: mat-palette($mat-blue-gray);
-  $accent: mat-palette($mat-blue-gray);
+  $accent: mat-palette($mat-purple);
 
   $theme: mat-dark-theme($primary, $accent);
 

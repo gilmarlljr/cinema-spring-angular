@@ -1,0 +1,13 @@
+.small-icon-button {
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+}
+.mat-icon {
+  width: 16px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+}
+.material-icons {
+  font-size: 16px !important;
+}

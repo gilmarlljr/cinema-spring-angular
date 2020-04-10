@@ -1,0 +1,27 @@
+.buy:hover span {
+  display:none
+}
+.buy{
+  width:120px
+}
+
+.buy:hover:before {
+  content:"COMPRAR";
+}
+
+.buy:hover {
+  background-color: #47c58ab4;
+}
+.movie-tag{
+  background-color: #4e6570;
+  margin: 3px;
+  border: 5px;
+  border-radius: 25%;
+  font-size: x-small;
+}
+.main-card{
+  background-color: #343637;
+}
+mat-expansion-panel{
+  margin-bottom: 10px;
+}

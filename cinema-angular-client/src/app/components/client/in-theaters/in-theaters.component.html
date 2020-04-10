@@ -1,0 +1,70 @@
+<div fxFlex fxLayout="column" style="height: 100vh">
+  <div *ngFor="let card of cardList" fxLayout="row wrap">
+    <span fxFlex="25" fxFlex.md="25" fxFlex.sm="0" fxFlex.xs="0"></span>
+    <div fxFlex="50" fxFlex.md="50" fxFlex.sm="100" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
+      <mat-card class="main-card mat-elevation-z2">
+        <div fxLayout="row wrap">
+          <mat-card-title> {{ card.title }} </mat-card-title>
+        </div>
+        <mat-card class="mat-elevation-z2" style="margin-top: 5px;">
+          <div fxLayout="row wrap">
+            <div fxLayout="column" fxFlex=35 fxFlex.md="40" fxFlex.sm="40" fxFlex.xs="100">
+              <mat-card class="image-card mat-elevation-z0">
+                <img mat-card-image
+                  src="https://ptanime.com/wp-content/uploads/2015/02/Attack-on-Titan-Filme-Poster.jpg"
+                  alt="Photo of a Shiba Inu">
+              </mat-card>
+            </div>
+            <div fxLayout="column" fxFlex=65 fxFlex.md="60" fxFlex.sm="60" fxFlex.xs="100" style="padding-left: 20px;">
+              <mat-card-content>
+                {{card.description}}
+              </mat-card-content>
+            </div>
+          </div>
+        </mat-card>
+        <div fxLayout="row wrap">
+          <div fxLayout="column" fxFlex=100>
+            <mat-card-footer>
+              <mat-card class="mat-elevation-z0 main-card">
+                <mat-expansion-panel expanded disabled>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Sala 1 </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div fxLayout="row" fxLayoutAlign="start rigth">
+                    <button mat-raised-button color="primary" class="buy">
+                      <span>10:00 <span class="movie-tag">3D</span><span class="movie-tag">LEG</span></span>
+                    </button>
+                    <span fxFlex=5></span><button mat-raised-button color="primary" class="buy">
+                      <span>10:00 <span class="movie-tag">3D</span><span class="movie-tag">LEG</span></span>
+                    </button>
+                    <span fxFlex=5></span>
+
+                  </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel expanded disabled>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Sala 2 </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div fxLayout="row" fxLayoutAlign="start rigth">
+                    <button mat-raised-button color="primary" class="buy">
+                      <span>10:00 <span class="movie-tag">3D</span><span class="movie-tag">LEG</span></span>
+                    </button>
+                    <span fxFlex=5></span><button mat-raised-button color="primary" class="buy">
+                      <span>10:00 <span class="movie-tag">3D</span><span class="movie-tag">LEG</span></span>
+                    </button>
+                    <span fxFlex=5></span><button mat-raised-button color="primary" class="buy">
+                      <span>10:00 <span class="movie-tag">3D</span><span class="movie-tag">LEG</span></span>
+                    </button>
+                    <span fxFlex=5></span>
+
+
+                  </div>
+                </mat-expansion-panel>
+              </mat-card>
+            </mat-card-footer>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

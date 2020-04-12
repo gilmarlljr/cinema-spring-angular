@@ -23,11 +23,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x ./cinema-spring-api/gradlew
     - name: Build with Gradle
-      run: ./cinema-spring-api/gradlew build
+      run: ./gradlew build
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        # Artifact name
         name: cinema-api
-        # Directory containing files to upload
         path: cinema-spring-api/build/libs

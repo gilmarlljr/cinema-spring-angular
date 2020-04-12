@@ -1,20 +1,24 @@
-### STAGE 1: Build ###
+# base image
+FROM node:12.16.1
 FROM adoptopenjdk/openjdk11:ubi
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
 
+# set working directory
+WORKDIR /app
 
-### STAGE 2: Build ###
-#FROM node:12.7-alpine AS build
-#WORKDIR /usr/src/app
-#COPY package.json ./
-#RUN npm install
-#COPY . .
-#RUN npm run build
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-### STAGE 2: Run ###
-#FROM nginx:1.17.1-alpine
-#COPY --from=build /usr/src/app/dist/aston-villa-app /usr/share/nginx/html
+# install and cache app dependencies
+COPY cinema-angular-client/package.json /app/package.json
+RUN npm install
+RUN npm install -g @angular/cli@9.0.0
+
+# add app
+COPY cinema-angular-client /app
+
+# start app
+CMD ng serve --host 0.0.0.0
+EXPOSE 4200
+EXPOSE 5000
+ADD /cinema-spring-api-0.0.1-SNAPSHOT.jar api.jar
+ENTRYPOINT ["java","-jar","api.jar"]

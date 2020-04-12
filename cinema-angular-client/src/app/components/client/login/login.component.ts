@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   @ViewChild(AbstractFormDirective, { static: true }) abstractForm: AbstractFormDirective;
   constructor(private componentFactoryResolver: ComponentFactoryResolver, public userService: UserService) { }
 
-  user: IUser = { email: 'client@client', password: 'client' }
+  user: IUser = { email: 'gilmar@teste.com', password: '12345678' }
   formUser: FormGroup;
   ngOnInit() {
     this.createForm();
@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    sessionStorage.clear()
     var formValue: IUser = this.formUser.value
     this.userService.auth(formValue.email, formValue.password, 'home')
   }

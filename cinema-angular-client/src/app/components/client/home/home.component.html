@@ -38,7 +38,7 @@
       <mat-icon>receipt</mat-icon>
     </button>
     <span fxFlex [ngClass]="{hidden: !(isHandset$ | async)}"></span>
-    <button mat-icon-button [ngClass]="{hidden: !(isHandset$ | async)}" routerLink="/home/history"
+    <button mat-icon-button [ngClass]="{hidden: !(isHandset$ | async)}" m
       routerLinkActive="active">
       <mat-icon>history</mat-icon>
     </button>
@@ -54,23 +54,19 @@
       <mat-icon matBadge="22" matBadgePosition="above before" matBadgeColor="accent" >notifications</mat-icon>
     </button>
     <span fxFlex [ngClass]="{hidden: !(isHandset$ | async)}"></span>
-    <button class="round-img-button" [ngClass]="{hidden: !(isHandset$ | async)}" mat-fab color="primary">
-    </button>
+    <button mat-icon-button *ngIf="(isHandset$ | async)" (click)="editar(user)">      <ngx-avatar size="40" name="image" src="{{user?.image}}"></ngx-avatar> </button>
     <span fxFlex [ngClass]="{hidden: !(isHandset$ | async)}"></span>
-    <button mat-icon-button [ngClass]="{hidden: !(isHandset$ | async)}">
+    <button mat-icon-button [ngClass]="{hidden: !(isHandset$ | async)}" (click)="logout()">
       <mat-icon>power_settings_new</mat-icon>
     </button>
     <span fxFlex [ngClass]="{hidden: !(isHandset$ | async)}"></span>
-
-    <button class="round-img-button" [ngClass]="{hidden: (isHandset$ | async)}" mat-fab color="primary"
-      [matMenuTriggerFor]="perfil">
-    </button>
+    <button mat-icon-button *ngIf="!(isHandset$ | async)"   [matMenuTriggerFor]="perfil">      <ngx-avatar size="40" name="image" src="{{user?.image}}" ></ngx-avatar></button>
     <mat-menu #perfil="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="editar(user)">
         <mat-icon>person</mat-icon>
         <span>Perfil</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="logout()">
         <mat-icon>power_settings_new</mat-icon>
         <span>desconectar</span>
       </button>

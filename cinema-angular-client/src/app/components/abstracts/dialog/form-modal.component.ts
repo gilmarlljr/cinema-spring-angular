@@ -42,7 +42,9 @@ export class FormModalComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<FormModalComponent>, private componentFactoryResolver: ComponentFactoryResolver,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) {
+    this.dialogRef.disableClose = true;
+  }
 
   close(): void {
     this.dialogRef.close();

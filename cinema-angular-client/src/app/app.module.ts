@@ -31,12 +31,22 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
 import { UserDashboardComponent } from './components/admin/user-dashboard/user-dashboard.component';
 import { FormModalComponent } from './components/abstracts/dialog/form-modal.component';
 import { FormImageInputComponent } from './components/abstracts/abstract-form/form-image-input.component';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { AvatarModule } from 'ngx-avatar';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+
 import { ConfirmDialogComponent } from './components/abstracts/dialog/confirm-dialog.component';
 import { MovieDashboardComponent } from './components/admin/movie-dashboard/movie-dashboard.component';
 import { RoomDashboardComponent } from './components/admin/room-dashboard/room-dashboard.component';
 import { SessionDashboardComponent } from './components/admin/session-dashboard/session-dashboard.component';
+
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
+
+import { MomentModule } from 'ngx-moment';
+import { registerLocaleData } from '@angular/common';
+import locale from '@angular/common/locales/br';
+
+registerLocaleData(locale)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +89,11 @@ import { SessionDashboardComponent } from './components/admin/session-dashboard/
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    MomentModule
   ],
   providers: [SidenavService, SelectMenuService],
   bootstrap: [AppComponent]

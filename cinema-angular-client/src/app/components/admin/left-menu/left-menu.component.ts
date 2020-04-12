@@ -11,6 +11,7 @@ import { ConfirmDialogComponent } from '../../abstracts/dialog/confirm-dialog.co
 import { SidenavService } from '../admin-nav/admin-nav.component';
 import { Subject } from 'rxjs';
 import { FormModelParms } from 'src/app/models/model';
+import { WsConstants } from '../constants';
 
 
 
@@ -27,14 +28,14 @@ export class LeftMenuComponent implements OnInit {
   public sideNavState: boolean = false;
   public linkText: boolean = false;
   user: UserModel
-  selectedMenu
+  selectedMenu: any
   constructor(private _sidenavService: SidenavService,
     public changeDetectorRefs: ChangeDetectorRef,
     private userService: UserService,
     private selectMenuService: SelectMenuService,
     public dialog: MatDialog,
     public router: Router, public snackBar: MatSnackBar) {
-    this.userService.role = 'admin'
+    this.userService.role = WsConstants.ROLE_ADMIN;
     this.selectMenuService.selectedMenu$.subscribe(data => {
       this.selectedMenu = { user: false, movie: false, report: false, session: false, room: false }
       this.selectedMenu[data] = true
@@ -48,7 +49,7 @@ export class LeftMenuComponent implements OnInit {
   }
 
   getUser() {
-    this.userService.get(sessionStorage.getItem('user_email')).subscribe(res => {
+    this.userService.login(sessionStorage.getItem('user_email')).subscribe(res => {
       this.user = DomainConverter.fromDto<UserModel>(UserModel, res.data)
     },
       err => {

@@ -98,7 +98,13 @@ export class UserModel implements IFormModel {
         { value: 'ROLE_CLIENT', viewValue: 'Cliente' }
       ]
     })
-    return [imagemItem, idItem, emailItem, nameItem, passwordItem, typeItem]
+    let forms = [imagemItem, idItem, emailItem, nameItem, passwordItem]
+    if(params['client']){
+      return forms;
+    }else{
+      forms.push(typeItem)
+    }
+    return forms
   }
 }
 

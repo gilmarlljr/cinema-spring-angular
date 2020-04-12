@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/http/user/user.service';
 import { FormInputComponent } from '../../abstracts/abstract-form/form-input.component';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserModel, IUser } from 'src/app/models/user.model';
+import { WsConstants } from '../constants';
 
 @Component({
   selector: 'app-admin-login',
@@ -12,7 +13,7 @@ import { UserModel, IUser } from 'src/app/models/user.model';
 })
 export class AdminLoginComponent implements OnInit {
   @ViewChild(AbstractFormDirective, { static: true }) abstractForm: AbstractFormDirective;
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private userService: UserService) { this.userService.role = 'admin' }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private userService: UserService) { this.userService.role = WsConstants.ROLE_ADMIN; }
 
   user: IUser = { email: "admin@admin", password: "admin" }
   formUser: FormGroup;
@@ -35,6 +36,7 @@ export class AdminLoginComponent implements OnInit {
   }
 
   login() {
+    sessionStorage.clear()
     var formValue: IUser = this.formUser.value
     this.userService.auth(formValue.email, formValue.password, 'dashboard')
   }

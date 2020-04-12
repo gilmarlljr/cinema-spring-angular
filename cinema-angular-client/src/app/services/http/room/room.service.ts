@@ -7,7 +7,7 @@ import { wsHost } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class RoomService  extends AbstractWebService<IRoom> {
+export class RoomService extends AbstractWebService<IRoom> {
 
   constructor(public http: HttpClient) { super(http, wsHost.room) }
 

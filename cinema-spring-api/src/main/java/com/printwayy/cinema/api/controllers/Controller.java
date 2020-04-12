@@ -3,11 +3,9 @@ package com.printwayy.cinema.api.controllers;
 import com.printwayy.cinema.api.config.Const;
 import com.printwayy.cinema.api.models.AbstractModel;
 import com.printwayy.cinema.api.responses.Response;
-import com.printwayy.cinema.api.services.Service;
+import com.printwayy.cinema.api.services.AbstractService;
 import com.printwayy.cinema.api.services.exception.NotFoundExeption;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,11 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public abstract class Controller<T extends AbstractModel> {
-
-    protected abstract Service<T> getService();
+    protected abstract AbstractService<T> getService();
 
 
     @Autowired
@@ -31,16 +27,6 @@ public abstract class Controller<T extends AbstractModel> {
     @GetMapping(path = "/all")
     public ResponseEntity<Response<List<T>>> listAll() {
         return ResponseEntity.ok(new Response<>(getService().listAll()));
-    }
-
-    @Secured({Const.ROLE_CLIENT, Const.ROLE_ADMIN})
-    @GetMapping(params = { "page", "size","sort","column" })
-    public ResponseEntity<Response<Page<T>>> listPaginated(@RequestParam("page") int page, @RequestParam("size") int size,@RequestParam("sort") String sort, @RequestParam("column") String column) {
-        Page<T> resultPage = getService().findPaginated(page, size, Sort.Direction.fromString(Optional.of(sort).orElse("asc")), Optional.of(column).orElse("id"));
-        if (page > resultPage.getTotalPages()) {
-            ResponseEntity.ok(new Response<>(resultPage));
-        }
-        return ResponseEntity.ok(new Response<>(resultPage));
     }
 
     @Secured({Const.ROLE_CLIENT, Const.ROLE_ADMIN})

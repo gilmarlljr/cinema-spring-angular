@@ -2,45 +2,25 @@ package com.printwayy.cinema.api.services.impl;
 
 import com.printwayy.cinema.api.models.impl.Room;
 import com.printwayy.cinema.api.repositories.RoomRepository;
-import com.printwayy.cinema.api.services.Service;
+import com.printwayy.cinema.api.services.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.List;
+import java.util.Optional;
 
 @org.springframework.stereotype.Service
-public class RoomService implements Service<Room> {
-    @Override
-    public Page<Room> findPaginated(int page, int size, Sort.Direction sort, String column) {
-        return null;
-    }
+public class RoomService extends AbstractService<Room> {
 
     @Autowired
     private RoomRepository repository;
 
-    @Override
-    public List<Room> listAll() {
-        return this.repository.findAll();
+    public Optional<Room> getByName(String name) {
+        return this.repository.findRoomsByName(name).stream().findFirst();
     }
 
-    @Override
-    public Room get(String id) {
-        return this.repository.findById(id).orElse(new Room());
-    }
 
     @Override
-    public Room insert(Room user) {
-        return this.repository.insert(user);
-    }
-
-    @Override
-    public Room update(Room user) {
-        return this.repository.save(user);
-    }
-
-    @Override
-    public void remove(String id) {
-        this.repository.deleteById(id);
+    protected MongoRepository<Room, String> getRepository() {
+        return this.repository;
     }
 }

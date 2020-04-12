@@ -1,26 +1,20 @@
 package com.printwayy.cinema.api.config;
 
-import com.printwayy.cinema.api.models.impl.MovieSession;
+import com.printwayy.cinema.api.models.impl.Session;
 import com.printwayy.cinema.api.models.impl.User;
 import com.printwayy.cinema.api.repositories.MovieRepository;
-import com.printwayy.cinema.api.repositories.MovieSessionRepository;
 import com.printwayy.cinema.api.repositories.RoomRepository;
+import com.printwayy.cinema.api.repositories.SessionRepository;
 import com.printwayy.cinema.api.repositories.UserRepository;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 public class DataInitializer implements ApplicationListener<ContextRefreshedEvent> {
@@ -29,25 +23,29 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
     UserRepository userRepository;
 
     @Autowired
-    MovieSessionRepository sessionRepository;
+    SessionRepository sessionRepository;
+
     @Autowired
     MovieRepository movieRepository;
 
     @Autowired
     RoomRepository roomRepository;
 
+
     @Autowired
     PasswordEncoder passwordEncoder;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent arg0) {
-        createSession();
+        createSession("2020-04-20 20:30");
+        createSession("2020-04-15 10:30");
+        createSession("2020-04-15 20:30");
         List<User> users = userRepository.findAll();
         if (users.isEmpty()) {
             createUser("Admin", "admin@admin", passwordEncoder.encode("admin"), Const.ROLE_ADMIN);
             createUser("Client", "client@client", passwordEncoder.encode("client"), Const.ROLE_CLIENT);
             for (int i = 0; i < 200; i++) {
-                createUser("Client - "+i, "client"+i+"@client", passwordEncoder.encode("client"), Const.ROLE_CLIENT);
+                createUser("Test - "+i, "test"+i+"@test", passwordEncoder.encode("test"), Const.ROLE_CLIENT);
             }
         }
 
@@ -63,23 +61,14 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
         userRepository.save(user);
     }
 
-    public void createSession() {
-        MovieSession movieSession = new MovieSession();
-
-        movieSession.setDate(LocalDate.now());
-        movieSession.setTime(LocalTime.now());
-        movieSession.setMovie(movieRepository.findAll().get(0));
-        movieSession.setRoom(roomRepository.findAll().get(0));
-        List<User> users = userRepository.findAll();
-        Map<Integer,User> userChair = new HashMap<>();
-        AtomicInteger i= new AtomicInteger(1);
-        users.forEach(user -> {
-            if(i.get()<100) {
-                userChair.put(i.getAndIncrement(), user);
-            }});
-        movieSession.setUserChairs(userChair);
-
-        sessionRepository.save(movieSession);
+    public void createSession(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(date, formatter);
+        Session session = new Session();
+        session.setDateTime(dateTime);
+        session.setRoomId(roomRepository.findAll().get(0).getId());
+        session.setMovieId(movieRepository.findAll().get(0).getId());
+        sessionRepository.save(session);
     }
 
 }

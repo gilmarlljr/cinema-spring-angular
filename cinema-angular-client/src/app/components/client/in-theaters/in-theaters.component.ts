@@ -1,23 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/services/http/session/session.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { ISession, IMovieSession } from 'src/app/models/session.model';
+import { DomainConverter } from 'src/app/models/domain';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-in-theaters',
   templateUrl: './in-theaters.component.html',
   styleUrls: ['./in-theaters.component.css']
 })
-export class InTheatersComponent implements OnInit {
+
+export class InTheatersComponent {
   public cardList: CardInterface[] = [];
-  ngOnInit() {
-    for (let i = 1; i <= 10; i++) {
-      this.cardList.push({
-        imgSrc: 'https://ptanime.com/wp-content/uploads/2015/02/Attack-on-Titan-Filme-Poster.jpg',
-        title: 'Card No. ' + i,
-        description:
-          'Angular Flex Layout provides a sophisticated layout API using FlexBox CSS + mediaQuery.\
-          This module provides Angular developers with component layout features using a custom Layout API, \
-          mediaQuery observables, and injected DOM flexbox-2016 css stylings.'
-      });
-    }
+  constructor(public ws: SessionService,
+    public router: Router, ) {
+    this.listSessions()
+  }
+
+  sessions: IMovieSession[]
+
+
+
+  listSessions() {
+    this.ws.getMovieSession().subscribe(res => {
+      this.sessions = res.data
+    })
   }
 }
 

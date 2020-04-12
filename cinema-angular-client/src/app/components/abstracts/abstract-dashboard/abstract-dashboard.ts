@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IFormModel, IModel, FormModelParms } from 'src/app/models/model';
+import { WsConstants } from '../../admin/constants';
 
 export abstract class AbstractDashboard<D extends IFormModel, I extends IModel> {
 
@@ -23,7 +24,7 @@ export abstract class AbstractDashboard<D extends IFormModel, I extends IModel> 
     public router: Router,
     public dialog: MatDialog,
     public snackBar: MatSnackBar) {
-    this.ws.role = 'admin'
+    this.ws.role = WsConstants.ROLE_ADMIN;
   }
 
   applyFilter(event: Event) {
@@ -89,7 +90,7 @@ export abstract class AbstractDashboard<D extends IFormModel, I extends IModel> 
   abstract updateParms(): FormModelParms;
 
   new() {
-    this.openFormDialog("Criar novo Usuario", this.convertIModel(<I>{}), this.insertParms()).subscribe(model => {
+    this.openFormDialog("Criar novo", this.convertIModel(<I>{}), this.insertParms()).subscribe(model => {
       if (model) {
         this.insertModel(model)
       }

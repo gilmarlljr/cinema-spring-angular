@@ -45,4 +45,11 @@ export class MovieDashboardComponent extends AbstractDashboard<MovieModel, IMovi
   updateParms(): FormModelParms {
     return { 'ws': this.ws }
   }
+
+  showAudioType(audioType: string): string {
+    if (audioType == 'subtitled') {
+      return 'Legendado';
+    }
+    return 'Dublado'
+  }
 }

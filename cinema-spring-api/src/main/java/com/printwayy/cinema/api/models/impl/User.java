@@ -17,7 +17,6 @@ import javax.validation.constraints.NotEmpty;
 @Document
 public class User extends AbstractModel {
     private String name;
-    @Indexed(unique=true)
     private String email;
     private String password;
     private String accessLevel;

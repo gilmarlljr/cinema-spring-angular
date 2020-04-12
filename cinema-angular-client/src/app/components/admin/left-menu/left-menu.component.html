@@ -4,7 +4,7 @@
     <div class="user_menu">
       <mat-nav-list>
         <a mat-list-item (click)="editar(user)">
-          <ngx-avatar size="30" name="{{user?.name}}" src="{{user?.image}}"></ngx-avatar>
+          <ngx-avatar size="30" name="image" src="{{user?.image}}"></ngx-avatar>
           <span [@animateText]="linkText ? 'show' : 'hide'">{{user?.name}}</span>
         </a>
       </mat-nav-list>

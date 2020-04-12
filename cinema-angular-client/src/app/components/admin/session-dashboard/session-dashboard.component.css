@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+}
+
+td.mat-column-dateTime {
+  width: 20%;
+  padding-right: 8px;
+}
+td.mat-column-room {
+  width: 20%;
+  padding-right: 8px;
+}
+td.mat-column-movie {
+  width: 40%;
+  padding-right: 8px;
+}
+td.mat-column-menu {
+  width: 10%;
+  padding-right: 8px;
+}

@@ -44,14 +44,11 @@ export class FormInputComponent implements AbstractFormComponent, OnInit {
   @Input() formControl: FormControl;
   @Input() data: AbstractFormParams;
 
-  wsValid() {
+  async wsValid() {
     if (this.initialValue != this.formControl.value) {
-      this.data.ws?.get(this.formControl.value).subscribe(res => {
-        console.log(res)
-        if (res.data) {
-          this.formControl.setErrors({ 'wsError': true });
-        }
-      })
+      let exists = await this.data.ws?.check({[this.data.name]:this.formControl.value})
+      if (exists)
+        this.formControl.setErrors({ 'wsError': true });
     }
   }
 }

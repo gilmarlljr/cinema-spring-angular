@@ -13,24 +13,23 @@
       </mat-form-field>
     </div>
   </div>
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort matSortActive="title" matSortDirection="asc">
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
-        <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+  <div class="mat-elevation-z8" >
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="dateTime" matSortDirection="asc">
+      <ng-container matColumnDef="dateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Data e Hora </th>
+        <td mat-cell *matCellDef="let row"> {{row.dateTime | amLocale:'pt-br' | amDateFormat:'llll'}} </td>
       </ng-container>
-      <ng-container matColumnDef="duration">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Duração </th>
-        <td mat-cell *matCellDef="let row"> {{row.duration}} </td>
+
+      <ng-container matColumnDef="room">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sala </th>
+        <td mat-cell *matCellDef="let row"> {{row.room.name}} </td>
       </ng-container>
-      <ng-container matColumnDef="animationType">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Filme </th>
-        <td mat-cell *matCellDef="let row"> {{row.animationType}} </td>
+
+      <ng-container matColumnDef="movie">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Filme </th>
+        <td mat-cell *matCellDef="let row"> {{row.movie.title}} </td>
       </ng-container>
-      <ng-container matColumnDef="audioType">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Audio </th>
-        <td mat-cell *matCellDef="let row"> {{showAudioType(row.audioType)}} </td>
-      </ng-container>
+
       <ng-container matColumnDef="menu" stickyEnd>
         <th mat-header-cell *matHeaderCellDef>Operações</th>
         <td mat-cell *matCellDef="let row">

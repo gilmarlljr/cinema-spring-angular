@@ -103,9 +103,9 @@ export class MovieModel implements IFormModel {
   getFormItens(params: FormModelParms): any[] {
     let imagem = new AbstractFormItem(FormImageInputComponent, { title: "Image", name: "image", placeholder: "Editar imagem do filme" })
     let id = new AbstractFormItem(FormInputComponent, { title: "Id", name: "id", hidden: true })
-    let title = new AbstractFormItem(FormInputComponent, { title: "Titulo", name: "title" })
-    let synopsis = new AbstractFormItem(FormInputComponent, { title: "Sinopse", name: "synopsis"})
-    let duration = new AbstractFormItem(FormInputComponent, { title: "Duração", name: "duration" })
+    let title = new AbstractFormItem(FormInputComponent, { title: "Titulo", name: "title", ws: params['ws'] })
+    let synopsis = new AbstractFormItem(FormInputComponent, { title: "Sinopse", name: "synopsis" })
+    let duration = new AbstractFormItem(FormInputComponent, { title: "Duração", name: "duration", type: 'number' })
     let animationType = new AbstractFormItem(FormSelectComponent, {
       title: "Tipo de Filme", name: "animationType", options: [
         { value: '3D', viewValue: '3D' },

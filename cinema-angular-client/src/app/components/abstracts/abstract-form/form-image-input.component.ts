@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, OnInit } from '@angular/core';
 import { AbstractFormComponent, AbstractFormParams } from './abstract-form.directive';
 import { FormBuilder, FormControl } from '@angular/forms';
 
@@ -7,7 +7,7 @@ import { FormBuilder, FormControl } from '@angular/forms';
   <div fxLayout="row wrap" style="margin-bottom: 10px;">
     <span fxFlex="30"></span>
     <div fxFlex="30" fxLayout="column" style="padding: 5px;">
-      <ngx-avatar size="120" name="User" src="{{formControl?.value}}"></ngx-avatar>
+      <ngx-avatar size="120" name="Image" src="{{formControl?.value}}"></ngx-avatar>
     </div>
   </div>
   <mat-form-field style="width: 100%;">
@@ -20,6 +20,7 @@ import { FormBuilder, FormControl } from '@angular/forms';
 })
 
 export class FormImageInputComponent implements AbstractFormComponent {
+
   @Input() data: AbstractFormParams;
   @Input() formControl: FormControl;
 
@@ -34,6 +35,7 @@ selectedImage = ''
       alert("No file selected");
     }
   }
+
 
 
   handleInputChange(file) {

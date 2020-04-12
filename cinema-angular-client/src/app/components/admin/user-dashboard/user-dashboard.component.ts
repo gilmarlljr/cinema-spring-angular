@@ -8,6 +8,7 @@ import { DomainConverter } from 'src/app/models/domain';
 import { AbstractDashboard } from '../../abstracts/abstract-dashboard/abstract-dashboard';
 import { FormModelParms } from 'src/app/models/model';
 import { SelectMenuService } from '../left-menu/left-menu.component';
+import { WsConstants } from '../constants';
 
 
 @Component({
@@ -43,5 +44,12 @@ export class UserDashboardComponent extends AbstractDashboard<UserModel, IUser> 
   }
   updateParms(): FormModelParms {
     return { 'ws': this.ws }
+  }
+
+  showAccessLevel(accessLevel: string): string {
+    if (accessLevel == WsConstants.ROLE_ADMIN) {
+      return 'Administrador';
+    }
+    return 'Cliente'
   }
 }

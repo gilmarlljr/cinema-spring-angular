@@ -3,27 +3,15 @@
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>CinemaApp</mat-card-title>
-
     </mat-card-header>
-    <form class="login-form">
+    <form [formGroup]="formUser" (ngSubmit)="register()">
       <mat-card-content>
-        <mat-form-field class="login-full-width">
-          <input matInput placeholder="Nome">
-        </mat-form-field>
-        <mat-form-field class="login-full-width">
-          <input matInput placeholder="E-mail">
-        </mat-form-field>
-
-        <mat-form-field class="login-full-width">
-          <input matInput placeholder="Senha">
-        </mat-form-field>
-        <mat-form-field class="login-full-width">
-          <input matInput placeholder="Confirmação da Senha">
-        </mat-form-field>
+        <ng-template abstract-form></ng-template>
       </mat-card-content>
       <button mat-raised-button color="primary" class="btn-block">Registrar</button>
     </form>
-    <button mat-button color="primary" class="btn-register" routerLink="/login" routerLinkActive="active">Já tenho uma conta</button>
+    <button mat-button color="primary" class="btn-register" routerLink="/login"
+      routerLinkActive="active">Ja possui conta? <b>Entrar</b></button>
 
   </mat-card>
 

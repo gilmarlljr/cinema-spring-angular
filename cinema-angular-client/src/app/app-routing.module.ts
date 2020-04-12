@@ -12,6 +12,7 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
 import { UserDashboardComponent } from './components/admin/user-dashboard/user-dashboard.component';
 import { MovieDashboardComponent } from './components/admin/movie-dashboard/movie-dashboard.component';
 import { RoomDashboardComponent } from './components/admin/room-dashboard/room-dashboard.component';
+import { SessionDashboardComponent } from './components/admin/session-dashboard/session-dashboard.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: 'user', component: UserDashboardComponent },
       { path: 'movie', component: MovieDashboardComponent },
       { path: 'room', component: RoomDashboardComponent },
+      { path: 'session', component: SessionDashboardComponent },
     ]
   },
   { path: '**', redirectTo: '' },

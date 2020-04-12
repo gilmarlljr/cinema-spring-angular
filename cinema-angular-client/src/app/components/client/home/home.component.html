@@ -38,12 +38,11 @@
       <mat-icon>receipt</mat-icon>
     </button>
     <span fxFlex [ngClass]="{hidden: !(isHandset$ | async)}"></span>
-    <button mat-icon-button [ngClass]="{hidden: !(isHandset$ | async)}" m
-      routerLinkActive="active">
+    <button mat-icon-button [ngClass]="{hidden: !(isHandset$ | async)}" routerLink="/home/history"    routerLinkActive="active">
       <mat-icon>history</mat-icon>
     </button>
     <span fxFlex [ngClass]="{hidden: !(isHandset$ | async)}"></span>
-    <button mat-icon-button>
+    <button mat-icon-button routerLink="/home/checkout"    routerLinkActive="active">
       <mat-icon>shopping_cart</mat-icon>
     </button>
     <span fxFlex [ngClass]="{hidden: !(isHandset$ | async)}"></span>

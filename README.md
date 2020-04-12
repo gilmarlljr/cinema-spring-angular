@@ -7,6 +7,7 @@ This is a test project made with Java (Spring boot), Angular 9 and MongoBD.
 ### Install dependencies
 
 JDK 11 https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
+
 MongoDB 4.2.5 https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2012plus-4.2.5-signed.msi
 
 ### Clone the repo

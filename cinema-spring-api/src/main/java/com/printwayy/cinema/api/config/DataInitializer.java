@@ -37,16 +37,16 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent arg0) {
-        createSession("2020-04-20 20:30");
-        createSession("2020-04-15 10:30");
-        createSession("2020-04-15 20:30");
+        //createSession("2020-04-20 20:30");
+        //createSession("2020-04-15 10:30");
+        //createSession("2020-04-15 20:30");
         List<User> users = userRepository.findAll();
         if (users.isEmpty()) {
             createUser("Admin", "admin@admin", passwordEncoder.encode("admin"), Const.ROLE_ADMIN);
             createUser("Client", "client@client", passwordEncoder.encode("client"), Const.ROLE_CLIENT);
-            for (int i = 0; i < 200; i++) {
-                createUser("Test - "+i, "test"+i+"@test", passwordEncoder.encode("test"), Const.ROLE_CLIENT);
-            }
+          // for (int i = 0; i < 200; i++) {
+          //     createUser("Test - "+i, "test"+i+"@test", passwordEncoder.encode("test"), Const.ROLE_CLIENT);
+          // }
         }
 
     }

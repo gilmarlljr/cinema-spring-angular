@@ -15,7 +15,7 @@ export class AdminLoginComponent implements OnInit {
   @ViewChild(AbstractFormDirective, { static: true }) abstractForm: AbstractFormDirective;
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private userService: UserService) { this.userService.role = WsConstants.ROLE_ADMIN; }
 
-  user: IUser = { email: "admin@admin", password: "admin" }
+  user: IUser = { }
   formUser: FormGroup;
   ngOnInit() {
     this.createForm();

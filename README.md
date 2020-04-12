@@ -39,5 +39,11 @@ npm install
 ng serve --open
 ```
 
+the client is hosted on `http://localhost:4200`
 
+### Principal routes
+
+`http://localhost:4200/admin` and the project has a default admin user `admin@admin` with password `admin`
+
+`http://localhost:4200/login` and the default client is `client@client` with password `client`
 

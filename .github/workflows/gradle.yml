@@ -30,4 +30,4 @@ jobs:
         # Artifact name
         name: cinema-api
         # Directory containing files to upload
-        path: ./cinema-spring-api/build/libs
+        path: cinema-spring-api/build/libs

@@ -4,7 +4,26 @@
 
 This is a test project made with Java (Spring boot), Angular 9 and MongoBD.
 
-PS: this project is not done, have a few features that need a review.
+features:
+  admin panel:
+    login: 100%
+    user dashboard: 100%
+    movies dashboard: 100%
+    session dashboard: 100%
+    room dashboard: 100%
+    report dashboard: 0%
+
+  client panel: 
+    login: 100%
+    in theaters:50%
+    hystory: 10% (only UI)
+    chekout: 10% (only UI)
+    notifications: 10% (only UI)
+    user edit: 100%
+    responsiveness: 90% 
+  
+
+
 
 ## Get started
 
@@ -50,4 +69,9 @@ the client is hosted on `http://localhost:4200`
 `http://localhost:4200/admin` and the project has a default admin user `admin@admin` with password `admin`
 
 `http://localhost:4200/login` and the default client is `client@client` with password `client`
+
+### Only UI routes
+`http://localhost:4200/history`
+`http://localhost:4200/checkout`
+
 

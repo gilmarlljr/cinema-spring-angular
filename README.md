@@ -2,6 +2,8 @@
 
 This is a test project made with Java (Spring boot), Angular 9 and MongoBD.
 
+PS: this project is not done, have a few features that need a review.
+
 ## Get started
 
 ### Install dependencies
@@ -39,5 +41,11 @@ npm install
 ng serve --open
 ```
 
+the client is hosted on `http://localhost:4200`
 
+### Principal routes
+
+`http://localhost:4200/admin` and the project has a default admin user `admin@admin` with password `admin`
+
+`http://localhost:4200/login` and the default client is `client@client` with password `client`
 

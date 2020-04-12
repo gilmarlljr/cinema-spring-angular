@@ -27,7 +27,7 @@ jobs:
             cd cinema-spring-api
             ./gradlew assemble  
             cd ..
-            cp cinema-spring-api/build/libs ./jar
+            cp -r cinema-spring-api/build/libs ./jar
             ls
             
     - name: Upload artifact

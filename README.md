@@ -1,4 +1,4 @@
-# PrintWayy
+# Cinema
 
 This is a test project made with Java (Spring boot), Angular 9 and MongoBD.
 

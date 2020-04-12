@@ -1,5 +1,5 @@
 # base image
-FROM node:12.16.1
+FROM node:12.2.0
 FROM adoptopenjdk/openjdk11:ubi
 
 # set working directory

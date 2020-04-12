@@ -30,10 +30,14 @@ Run server `jar` inside of `cinema-spring-api`:
 java -jar .\build\libs\cinema-spring-api-0.0.1-SNAPSHOT.jar
 ```
 
-### Build Angular Client
+### Build and Run Angular Client
 
 Install the `npm` packages described in the `package.json` inside of `cinema-angular-client`:
 
 ```shell
 npm install
+ng serve --open
 ```
+
+
+

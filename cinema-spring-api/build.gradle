@@ -46,11 +46,14 @@ test {
     useJUnitPlatform()
 }
 
+task myJar(type: Jar)
+
 publishing {
-    publications {
-        create<MavenPublication>("default") {
-            from(components["java"])
-            artifact(dokkaJar)
+     publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'cinema-api'
+            from components.java
+            artifact(myJar)
         }
     }
 

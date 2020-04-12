@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: cinema-api
-        path: ../cinema-spring-api/build/libs
+        path: ./cinema-spring-api/build/libs
     - name: Publish artifact
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

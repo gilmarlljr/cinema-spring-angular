@@ -25,22 +25,10 @@ jobs:
     - name: Build with Gradle
       run: |
             cd cinema-spring-api
-            ./gradlew assemble  
-            cd ..
-            cp -r cinema-spring-api/build/libs ./jar
-            ls
-            
+            ./gradlew assemble            
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: cinema-api
         path: ./cinema-spring-api/build/libs
-    - name: Publish artifact
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-          NEW_VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
-          echo "New version: ${NEW_VERSION}"
-          echo "Github username: ${GITHUB_ACTOR}"
-          cd cinema-spring-api
-          ./gradlew publish
+

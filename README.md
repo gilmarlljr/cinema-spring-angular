@@ -1,5 +1,7 @@
 # Cinema
 
+![Java CI with Gradle](https://github.com/gilmarlljr/cinema-spring-angular/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
+
 This is a test project made with Java (Spring boot), Angular 9 and MongoBD.
 
 PS: this project is not done, have a few features that need a review.
